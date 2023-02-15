@@ -11,7 +11,7 @@ def collect_places():
 		city_country = input('Tell me where you went: ')
 
 		# Account for spaces before/after cities and countries
-		if re.match('\s{0,}[^ ].*\s{0,},\s{0,}[^ ].*\s{0}', city_country):
+		if re.match('\\s{0,}[^ ].*\\s{0,},\\s{0,}[^ ].*\\s{0}', city_country):
 			city_country_list = city_country.split(',')
 			# Remove any spaces
 			city = (city_country_list[0].lstrip()).rstrip()
