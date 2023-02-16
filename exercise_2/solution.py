@@ -51,7 +51,7 @@ def myrange3(start, *args):
 def main():
 	"""Main function"""
 
-	# Module testing for myrange3 function
+	# Module testing for myrange2 function
 	print('----------------------------------------'
 		  '\nModule testing for myrange2 function:\n'
 		  '----------------------------------------')
