@@ -1,15 +1,16 @@
 #!/Users/jeff/.pyenv/shims/python
 
 def myrange2(start, *args):
+	'''myrange2 function'''
 
-	print(f'Args to myrange2 are: {start} and {list(args)}\n')
+	print(f'Args are: {start} and {list(args)}')
 
 	range_list = []
 	if len(args) not in range(0,3):
-		print('  ERROR!! Must only enter 1, 2 or 3 integer args to myrange2.\n')
+		print('  ERROR!! Must only enter 1, 2 or 3 integer args')
 		return(range_list)
 	if len(args) in [1,2] and args[0] != None and args[0] <= start:
-		print("  ERROR!! End can't be greater than or equal to start.\n")
+		print("  ERROR!! End can't be greater than or equal to start")
 		return(range_list)
 
 	range_start = start # Default when 2 or 3 args, will clobber if 0.
@@ -41,33 +42,53 @@ def myrange2(start, *args):
 		range_start = range_start + range_step
 	return(range_list)
 
+def myrange3(start, *args):
+	'''myrange3 function'''
+
+	iterator = iter(myrange2(start, *args))
+	return iterator
+
 def main():
 	"""Main function"""
 
-	# Module Testing
-	for x in myrange2(3):
-		print(f'  Value in range:{x}')
-	print('\n')
+	# Module testing for myrange3 function
+	print('----------------------------------------'
+		  '\nModule testing for myrange2 function:\n'
+		  '----------------------------------------')
 	for x in myrange2(10):
-		print(f'  Value in range:{x}')
-	print('\n')
-	for x in myrange2(1,3):
-		print(f'  Value in range:{x}')
+		print(f'  Value in range: {x}')
 	print('\n')
 	for x in myrange2(10,20,None):
-		print(f'  Value in range:{x}')
+		print(f'  Value in range: {x}')
 	print('\n')
 	for x in myrange2(20,10,None):
-		print(f'  Value in range:{x}')
-	print('\n')
-	for x in myrange2(1,6,2):
-		print(f'  Value in range:{x}')
+		print(f'  Value in range: {x}')
 	print('\n')
 	for x in myrange2(10, 30, 3):
-		print(f'  Value in range:{x}')
+		print(f'  Value in range: {x}')
 	print('\n')
 	for x in myrange2(1,2,3,4):
-		print(f'  Value in range:{x}')
+		print(f'  Value in range: {x}')
+	print('\n')
+
+	# Module testing for myrange3 function
+	print('---------------------------------------'
+		  '\nModule testing for myrange3 function:\n'
+		  '---------------------------------------')
+	for x in myrange3(10):
+		print(f'  Value in range: {x}')
+	print('\n')
+	for x in myrange3(10, 20, None):
+		print(f'  Value in range: {x}')
+	print('\n')
+	for x in myrange3(20, 10, None):
+		print(f'  Value in range: {x}')
+	print('\n')
+	for x in myrange3(10, 30, 3):
+		print(f'  Value in range: {x}')
+	print('\n')
+	for x in myrange3(1, 2, 3, 4):
+		print(f'  Value in range: {x}')
 	print('\n')
 
 if __name__ == '__main__':
