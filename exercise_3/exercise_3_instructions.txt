@@ -1,0 +1,32 @@
+For the purposes of this exercise, we'll be looking at one of my favorite files, which I call "mini-access-log.txt".
+It is an excerpt from the Apache HTTP server on my computer (lerner.co.il) from several years ago.  You can view and
+download it from here:
+
+    https://gist.github.com/reuven/5875971
+
+Each line of this logfile looks like the following:
+67.218.116.165 - - [30/Jan/2010:00:03:18 +0200] "GET /robots.txt HTTP/1.0" 200 99 "-" "Mozilla/5.0 (Twiceler-0.9
+http://www.cuil.com/twiceler/robot.html)"
+
+As you can see:
+The fields aren't separated by whitespace, but are still recognizable to a human.
+Each line starts with an IP address.
+Between square brackets, we have the timestamp -- date, time, and then the time zone.
+Following the timestamp, inside of double quotes ("), we have the HTTP request.  You can assume that in this file, all
+of the request start with the word GET.
+
+There are other fields as well, but these are the ones that interest me.
+
+The exercise is to write a function that, when given a filename, returns a list of dictionaries.  Each dict should have
+the following keys:
+ip_address, containing the IP address
+timestamp, containing the timestamp (not including the square brackets, but everything inside of them)
+request, containing the HTTP request (not including the double quotes, but everything inside of them)
+
+Thus, the above line from mini-access-log.txt would look like this:
+    {'ip_address': '67.218.116.165',
+     'timestamp': '30/Jan/2010:00:03:18 +0200',
+     'request': 'GET /robots.txt HTTP/1.0'}
+
+We'll transform the file into a list of dicts, each of which looks that.  There are 206 lines in the file, which means
+that this list will contain 206 dictionaries, each with these three key-value pairs.
